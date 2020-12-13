@@ -13,9 +13,11 @@
     if (isset($_SESSION['status'])) {
         if ($_SESSION['status'] != 1) {
             header('location: ./index.php');
+            exit();
         }
     } else {
         header('location: ./index.php');
+        exit();
     }
     if (isset($_SESSION['password'])) {
         switch ($_SESSION['password']) {
@@ -41,7 +43,7 @@
 
     <h1>MyPages | Password Reset</h1>
 
-    <form action="changepassword.php" method="post">
+    <form action="password_process.php" method="post">
         <input type="password" name="oldpsw" placeholder="Enter old password" required />
         <br />
         <input type="password" name="newpsw1" placeholder="Enter new password" required />

@@ -20,8 +20,12 @@
                 echo "Invalid username or password.";
                 unset($_SESSION['status']);
                 break;
+            case 3:
+                echo "Account successfully created. Please login.";
+                unset($_SESSION['status']);
+                break;
             default;
-                echo "Unimplemented status: " . $_SESSION['status'];
+                echo "Unimplemented status value: " . $_SESSION['status'];
                 session_destroy();
                 break;
         }
@@ -30,13 +34,15 @@
 
     <h1>Welcome to MyPages</h1>
 
-    <form action="process.php" method="post">
+    <form action="login_process.php" method="post">
         <input type="text" name="usrname" placeholder="Username" required />
         <br />
         <input type="password" name="psw" placeholder="Password" required />
         <br /><br />
         <input type="submit" value="Login" name="submit" />
     </form>
+    <br /><br />
+    <a href="./register.php">New User? Sign up</a>
 </body>
 
 </html>
